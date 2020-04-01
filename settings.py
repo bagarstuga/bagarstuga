@@ -1,3 +1,5 @@
+#its a nice
+
 TITLE = "SharkRush"
 WIDTH = 800
 HEIGHT = 600
