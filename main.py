@@ -2,7 +2,6 @@
 # Jumpy! (a platform game) - Part 1
 # Video link: https://www.youtube.com/watch?v=uWvb3QzA48c
 # Project setup
-# Testing my power/3xer
 
 import pygame as pg
 import random
