@@ -1,71 +1,54 @@
-# SharkRush
-# Project by Pontus, Arvid and Adrian
-
-
-
+"""TODO"""
 import pygame as pg
 import random
-from settings import *
 from sprites import *
+from settings import *
 
-class Game:
+class main_class:
+    """TODO"""
     def __init__(self):
-        # initialize game window, etc
+        """TODO"""
         pg.init()
-        pg.mixer.init()
-        self.screen = pg.display.set_mode((WIDTH, HEIGHT))
+        self.screen = pg.display.set_mode((SCR_WIDTH, SCR_HEIGHT))
         pg.display.set_caption(TITLE)
-        self.clock = pg.time.Clock()
+        self.timing = pg.time.Clock()
         self.running = True
-
-    def new(self):
-        # start a new game
-        self.all_sprites = pg.sprite.Group()
-        self.player = Player()
-        self.all_sprites.add(self.player)
-        self.run()
-
-    def run(self):
-        # Game Loop
-        self.playing = True
-        while self.playing:
-            self.clock.tick(FPS)
-            self.events()
+    def render(self):
+        """TODO"""
+        sprites = pg.sprite.Group()
+    def go(self):
+        """TODO"""
+        self.going = True
+        while self.going:
+            self.timing.tick(FPS)
             self.update()
-            self.draw()
-
+            self.events()
+            self.graphic()
     def update(self):
-        # Game Loop - Update
-        self.all_sprites.update()
-
+        """TODO"""
+        self.sprites.update()
     def events(self):
-        # Game Loop - events
+        """TODO"""
         for event in pg.event.get():
-            # check for closing window
             if event.type == pg.QUIT:
-                if self.playing:
-                    self.playing = False
+                if self.going:
+                    self.going = False
                 self.running = False
-
-    def draw(self):
-        # Game Loop - draw
-        self.screen.fill(BLACK)
-        self.all_sprites.draw(self.screen)
-        # *after* drawing everything, flip the display
+    def graphic(self):
+        """TODO"""
+        self.screen.fill(GREEN)
+        self.sprites.draw(self.screen)
         pg.display.flip()
-
-    def show_start_screen(self):
-        # game splash/start screen
+    def end_screen(self):
+        """TODO"""
         pass
-
-    def show_go_screen(self):
-        # game over/continue
+    def start_screen(self):
+        """TODO"""
         pass
-
-g = Game()
-g.show_start_screen()
-while g.running:
-    g.new()
-    g.show_go_screen()
-
+m = main_class()
+m.start_screen()
+while m.running:
+    m.render()
+    m.end_screen()
+    
 pg.quit()
