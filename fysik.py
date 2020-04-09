@@ -1,4 +1,4 @@
 # Sharkrush
 
-def gavity(self):
-    self.speedY += 3:
+#def gavity(self):
+#    self.speedY += 3:
