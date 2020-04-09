@@ -3,7 +3,6 @@ import pygame as pg
 import random
 from sprites import *
 from settings import *
-from fysik import *
 
 class main_class:
     """TODO"""
@@ -14,6 +13,7 @@ class main_class:
         pg.display.set_caption(TITLE)
         self.timing = pg.time.Clock()
         self.running = True
+        self.going = True
     def render(self):
         """TODO"""
         sprites = pg.sprite.Group()
@@ -59,13 +59,12 @@ while m.running:
     pg.display.flip()
     clock.tick(30)
     pg.display.update()
+
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            if self.going:
-                self.going = False
-            self.running = False
-
-
-
+            if m.going:
+                m.going = False
+                m.running = False
 
 pg.quit()
+
