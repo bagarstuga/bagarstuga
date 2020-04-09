@@ -3,6 +3,7 @@ import pygame as pg
 import random
 from sprites import *
 from settings import *
+from fysik import *
 
 class main_class:
     """TODO"""
