@@ -25,11 +25,7 @@ class main_class:
             self.events()
             self.graphic()
     def update(self):
-        pass
-
-
         """TODO"""
-
         self.sprites.update()
     def events(self):
         """TODO"""
@@ -43,9 +39,10 @@ class main_class:
         # self.screen.fill(GREEN)
         self.sprites.draw(self.screen)
     def end_screen(self):
+        pass
         """TODO"""
-
     def start_screen(self):
+        pass
         """TODO"""
 m = main_class()
 m.start_screen()
@@ -67,4 +64,3 @@ while m.running:
                 m.running = False
 
 pg.quit()
-
