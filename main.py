@@ -3,7 +3,6 @@ import pygame as pg
 import random
 from sprites import *
 from settings import *
-from fysik import *
 
 class main_class:
     """TODO"""
@@ -21,12 +20,15 @@ class main_class:
         """TODO"""
         self.going = True
         while self.going:
-            self.timing.tick(FPS)
             self.update()
             self.events()
             self.graphic()
     def update(self):
+        pass
+
+
         """TODO"""
+
         self.sprites.update()
     def events(self):
         """TODO"""
@@ -37,19 +39,32 @@ class main_class:
                 self.running = False
     def graphic(self):
         """TODO"""
-        self.screen.fill(GREEN)
+        # self.screen.fill(GREEN)
         self.sprites.draw(self.screen)
-        pg.display.flip()
     def end_screen(self):
         """TODO"""
-        pass
+
     def start_screen(self):
         """TODO"""
-        pass
 m = main_class()
 m.start_screen()
+clock = pg.time.Clock()
+
 while m.running:
+    pg.event.get()
     m.render()
     m.end_screen()
-    
+    m.screen.fill((GREEN))
+    pg.display.flip()
+    clock.tick(30)
+    pg.display.update()
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            if self.going:
+                self.going = False
+            self.running = False
+
+
+
+
 pg.quit()
