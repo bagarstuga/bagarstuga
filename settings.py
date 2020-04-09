@@ -7,5 +7,3 @@ TITLE = "Shark Rush"
 
 GREEN = (0, 255, 0)
 BLACK = (255, 255, 255)
-
-class Shark()
