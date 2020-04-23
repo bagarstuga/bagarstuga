@@ -13,54 +13,44 @@ class main_class:
         pg.display.set_caption(TITLE)
         self.timing = pg.time.Clock()
         self.running = True
-        self.going = True
     def render(self):
         """TODO"""
         sprites = pg.sprite.Group()
     def go(self):
         """TODO"""
-        self.going = True
-        while self.going:
-            self.update()
-            self.events()
-            self.graphic()
+        pass
     def update(self):
         """TODO"""
-        self.sprites.update()
+        #self.sprites.update()
+        pg.display.update()
     def events(self):
         """TODO"""
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                if self.going:
-                    self.going = False
-                self.running = False
+        while self.running:
+            self.timing.tick(FPS)
+            self.go()
+            self.render()
+            self.graphic()
+            self.update()
+            pg.display.flip()
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    self.running = False
+        pg.quit()
     def graphic(self):
         """TODO"""
-        # self.screen.fill(GREEN)
-        self.sprites.draw(self.screen)
+        self.screen.fill(GREEN)
+        #self.sprites.draw(self.screen)
     def end_screen(self):
-        pass
         """TODO"""
+        pass
     def start_screen(self):
-        pass
         """TODO"""
-m = main_class()
-m.start_screen()
-clock = pg.time.Clock()
+        pass
 
-while m.running:
-    pg.event.get()
-    m.render()
-    m.end_screen()
-    m.screen.fill((GREEN))
-    pg.display.flip()
-    clock.tick(30)
-    pg.display.update()
+def main():
+    m = main_class()
+    m.start_screen()
+    m.events()
 
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            if m.going:
-                m.going = False
-                m.running = False
-
-pg.quit()
+if __name__== "__main__":
+    main()
