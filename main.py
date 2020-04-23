@@ -48,6 +48,7 @@ class main_class:
         pass
 
 def main():
+    """TODO"""
     m = main_class()
     m.start_screen()
     m.events()
