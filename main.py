@@ -16,7 +16,7 @@ class main_class:
     def render(self):
         """TODO"""
         self.sprites = pg.sprite.Group()
-        self.player = shark()
+        self.player = Shark()
         self.sprites.add(self.player)
         self.events()
     def go(self):
