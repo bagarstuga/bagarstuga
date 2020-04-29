@@ -2,12 +2,12 @@
 import pygame as pg
 from settings import *
 
-class shark(pg.sprite.Sprite):
+class Shark(pg.sprite.Sprite):
     """TODO"""
     def __init__(self):
         """TODO"""
         pg.sprite.Sprite.__init__(self)
-        self.image = pg.Surface((30, 40))
+        self.image = pg.Surface((PLAYER_WIDTH, PLAYER_HEIGHT))
         self.image.fill(BLUE)
         self.rect = self.image.get_rect()
         self.rect.center = (SCR_WIDTH / 2, SCR_HEIGHT / 2)
@@ -17,8 +17,8 @@ class shark(pg.sprite.Sprite):
         """TODO"""
         key_press = pg.key.get_pressed()
         if key_press[pg.K_LEFT]:
-            self.vx = -3
+            self.vx = -PLAYER_MVMNTSPEED
         if key_press[pg.K_RIGHT]:
-            self.vx = 3
+            self.vx = PLAYER_MVMNTSPEED
         self.rect.x += self.vx
         self.rect.y += self.vy
