@@ -15,20 +15,22 @@ class main_class:
         self.running = True
     def render(self):
         """TODO"""
-        sprites = pg.sprite.Group()
+        self.sprites = pg.sprite.Group()
+        self.player = shark()
+        self.sprites.add(self.player)
+        self.events()
     def go(self):
         """TODO"""
         pass
     def update(self):
         """TODO"""
-        #self.sprites.update()
+        self.sprites.update()
         pg.display.update()
     def events(self):
         """TODO"""
         while self.running:
             self.timing.tick(FPS)
             self.go()
-            self.render()
             self.graphic()
             self.update()
             pg.display.flip()
@@ -39,7 +41,7 @@ class main_class:
     def graphic(self):
         """TODO"""
         self.screen.fill(GREEN)
-        #self.sprites.draw(self.screen)
+        self.sprites.draw(self.screen)
     def end_screen(self):
         """TODO"""
         pass
@@ -51,7 +53,8 @@ def main():
     """TODO"""
     m = main_class()
     m.start_screen()
-    m.events()
+    m.render()
 
 if __name__== "__main__":
     main()
+
