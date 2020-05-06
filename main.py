@@ -9,6 +9,7 @@ class MainClass:
     def __init__(self):
         """TODO"""
         pg.init()
+        pg.mixer.init()
         self.screen = pg.display.set_mode((SCR_WIDTH, SCR_HEIGHT))
         pg.display.set_caption(TITLE)
         self.timing = pg.time.Clock()
@@ -18,6 +19,8 @@ class MainClass:
         self.sprites = pg.sprite.Group()
         self.player = Shark()
         self.sprites.add(self.player)
+        pg.mixer.music.load("FadeNCS.mp3")
+        pg.mixer.music.play(-1)
         self.events()
     def go(self):
         """TODO"""
@@ -76,9 +79,5 @@ def main():
     """TODO"""
     m = MainClass()
     m.start_screen()
-    
-
 if __name__== "__main__":
     main()
-
-
