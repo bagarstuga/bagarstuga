@@ -1,11 +1,12 @@
-"""TODO"""
+"""The main module for the game SharkRush. Run this in order to start the game"""
 import random
 import pygame as pg
 from sprites import *
 from settings import *
 
 class MainClass:
-    """TODO"""
+    """This class contains methods for the start-screen,
+       updating the screen, drawing sprites and the game loop"""
     def __init__(self):
         """TODO"""
         pg.init()
@@ -15,45 +16,53 @@ class MainClass:
         self.timing = pg.time.Clock()
         self.running = True
     def render(self):
-        """TODO"""
+        """When the game starts, create these first and play music,
+           then go to the game loop in events(). Here the class Shark() is
+           imported from sprites and becomes the player variable"""
         self.sprites = pg.sprite.Group()
         self.player = Shark()
         self.sprites.add(self.player)
         pg.mixer.music.load("FadeNCS.mp3")
         pg.mixer.music.play(-1)
         self.events()
-    def go(self):
-        """TODO"""
-        pass
     def update(self):
-        """TODO"""
+        """Updates the sprites and updates the screen"""
         self.sprites.update()
         pg.display.update()
     def events(self):
-        """TODO"""
+        """The game loop where the other methods are called and run
+           until the end_game() method is called and running is false
+           here the updating speed is set to the constant
+           FPS"""
         while self.running:
             self.timing.tick(FPS)
-            self.go()
             self.graphic()
             self.update()
             self.end_game()
             pg.display.flip()
         pg.quit()
     def graphic(self):
-        """TODO"""
-        self.screen.fill(GREEN)
+        """Draws the different sprites and the background"""
+        background_img = pg.transform.scale\
+        (pg.image.load("pool-water.jpg"),(SCR_WIDTH, SCR_HEIGHT))
+        self.screen.blit(background_img, (0, 0))
         self.sprites.draw(self.screen)
     def end_screen(self):
-        """TODO"""
+        """This method will contain the end screen"""
         pass
     def end_game(self):
-        """TODO"""
+        """A loop that checks if an event is the QUIT event, if so
+           running is false, this stops the game loop"""
         for event in pg.event.get():
              if event.type == pg.QUIT:
                  self.running = False
-                 self.done = True
     def start_screen(self):
-        """TODO"""
+        """This method defines two fonts, used for the two different
+           text lines, these are put on top of the background,
+           then checks if any key is pressed, if so, go to render(),
+           otherwise, quit. There is a number 1.8 here, this is just a number
+           which places the second line of text in a good place, right below
+           the first line"""
         done = False
         font1 = pg.font.Font("freesansbold.ttf", 32)
         font2 = pg.font.Font("freesansbold.ttf", 20)
@@ -76,8 +85,11 @@ class MainClass:
                     quit()
         self.render()
 def main():
-    """TODO"""
+    """This function runs the method start_screen to display the start screen
+       it is used to prevent global variables.
+       """
     m = MainClass()
     m.start_screen()
 if __name__== "__main__":
     main()
+
