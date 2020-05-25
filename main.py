@@ -1,4 +1,3 @@
-"""The main module for the game SharkRush. Run this in order to start the game"""
 import pygame as pg
 from shark import *
 from settings import *
@@ -36,6 +35,7 @@ class MainClass:
         if collide:
             self.player.pos.y = collide[0].rect.top
             self.player.vel.y = 0
+        pg.display.flip()
     def events(self):
         """The game loop where the other methods are called and run
            until the end_game() method is called and running is false
@@ -46,7 +46,6 @@ class MainClass:
             self.graphic()
             self.update()
             self.jumping_end_game()
-            pg.display.flip()
         pg.quit()
     def graphic(self):
         """Draws the different sprites and the background"""
@@ -59,7 +58,8 @@ class MainClass:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.running = False
-            if event.type == pg.KEYDOWN:
+                pg.quit()
+            elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE:
                     self.player.jump()
     def start_screen(self):
@@ -85,72 +85,7 @@ class MainClass:
             pg.display.update()
             for event in pg.event.get():
                 if event.type == pg.KEYUP:
-                    done = True"""The main module for the game SharkRush. Run this in order to start the game"""
-import pygame as pg
-from shark import *
-from settings import *
-from platforms import Platform
-
-class MainClass:
-    """This class contains methods for the start-screen,
-       updating the screen, drawing sprites and the game loop"""
-    def __init__(self):
-        """TODO"""
-        pg.init()
-        pg.mixer.init()
-        self.screen = pg.display.set_mode((SCR_WIDTH, SCR_HEIGHT))
-        pg.display.set_caption(TITLE)
-        self.sprites = pg.sprite.Group()
-        self.platforms = pg.sprite.Group()
-        self.player = Shark()
-        self.timing = pg.time.Clock()
-        self.running = True
-    def render(self):
-        """When the game starts, create these first and play music,
-           then go to the game loop in events(). Here the class Shark() is
-           imported from sprites and becomes the player variable"""
-        self.sprites.add(self.player)
-        pg.mixer.music.load("FadeNCS.ogg")
-        pg.mixer.music.play(-1)
-        ground = Platform(0, SCR_HEIGHT/1.8, SCR_WIDTH, 30)
-        self.sprites.add(ground)
-        self.platforms.add(ground)
-        self.events()
-    def update(self):
-        """Updates the sprites and updates the screen"""
-        self.sprites.update()
-        collide = pg.sprite.spritecollide(self.player, self.platforms, False)
-        if collide:
-            self.player.pos.y = collide[0].rect.top
-            self.player.vel.y = 0
-    def events(self):
-        """The game loop where the other methods are called and run
-           until the end_game() method is called and running is false
-           here the updating speed is set to the constant
-           FPS"""
-        while self.running:
-            self.timing.tick(FPS)
-            self.graphic()
-            self.update()
-            self.jumping_end_game()
-            pg.display.flip()
-        pg.quit()
-    def graphic(self):
-        """Draws the different sprites and the background"""
-        background_img = pg.transform.scale\
-        (pg.image.load("pool-water.jpg"), (SCR_WIDTH, SCR_HEIGHT))
-        self.screen.blit(background_img, (0, 0))
-        self.sprites.draw(self.screen)
-    def jumping_end_game(self):
-        """This method will contain the end screen"""
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                self.running = False
-            if event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                elif event.type == pg.QUIT:
-                    pg.quit()
-                    quit()
+                    done = True
         self.render()
 def main():
     """This function runs the method start_screen to display the start screen
@@ -159,4 +94,3 @@ def main():
     MainClass().start_screen()
 if __name__ == "__main__":
     main()
-
