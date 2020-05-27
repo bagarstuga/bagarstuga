@@ -101,5 +101,25 @@ def main():
        it is used to prevent global variables.
        """
     MainClass().start_screen()
+   
+       """informationt for logging"""
+    fmtstr = " %(asctime)s: (%(filename)s): %(levelname)s: %(funcName)s Line: %(lineno)d - %(message)s"
+    datestr = "%m/%d/%y %I:%m:%S: %p "
+
+    logging.basicConfig(
+        """giving info to get the logger to work"""
+        filename= "custom_log_output.log",
+        level= logging.DEBUG,
+        filemode= "w",
+        format= fmtstr,
+        datefmt= datestr,
+    )
+    """different log messages"""
+    logging.info("info message")
+    logging.warning("Warning message")
+    logging.debug("DEBUG message")
+    logging.error("Error message")
+    logging.critical("CRITICAL MESSAGE")
+   
 if __name__ == "__main__":
     main()
