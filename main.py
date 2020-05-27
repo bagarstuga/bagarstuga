@@ -1,3 +1,7 @@
+"""This module is the main module for the game
+   Shark Rush. It starts the game and is the module where
+   everything is connected. Run this module to start the game.
+   The controls are simple. Arrow keys to move and spacebar to jump"""
 import pygame as pg
 from shark import *
 from settings import *
@@ -7,7 +11,10 @@ class MainClass:
     """This class contains methods for the start-screen,
        updating the screen, drawing sprites and the game loop"""
     def __init__(self):
-        """TODO"""
+        """This initializes pygame as well as the
+           pygame mixer, which is used for playing sounds.
+           Groups for platforms and sprites are made as to organize them.
+           The clock tick is also set up."""
         pg.init()
         pg.mixer.init()
         self.screen = pg.display.set_mode((SCR_WIDTH, SCR_HEIGHT))
@@ -54,7 +61,9 @@ class MainClass:
         self.screen.blit(background_img, (0, 0))
         self.sprites.draw(self.screen)
     def jumping_end_game(self):
-        """This method will contain the end screen"""
+        """Makes use of the pygame.event.get() to
+           both jump and see if the player wants to close
+           the game, hence the name."""
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.running = False
