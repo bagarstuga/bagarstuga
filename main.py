@@ -32,9 +32,12 @@ class MainClass:
         self.sprites.add(self.player)
         pg.mixer.music.load("FadeNCS.ogg")
         pg.mixer.music.play(-1)
-        ground = Platform(0, SCR_HEIGHT/1.8, SCR_WIDTH, 30)
-        self.sprites.add(ground)
-        self.platforms.add(ground)
+        ground = Platform(0, SCR_HEIGHT - 30, SCR_WIDTH, 30)
+        plat_1 = Platform(SCR_WIDTH / 2, 400, 200, 30)
+        plat_2 = Platform(100, 600, 200, 30)
+        plat_3 = Platform(100, 200, 200, 30)
+        self.sprites.add(ground, plat_1, plat_2, plat_3)
+        self.platforms.add(ground, plat_1, plat_2, plat_3)
         self.events()
     def update(self):
         """Updates the sprites and updates the screen"""
@@ -103,7 +106,7 @@ def main():
        """
     MainClass().start_screen()
    
-       """informationt for logging"""
+    """information for logging"""
     fmtstr = " %(asctime)s: (%(filename)s): %(levelname)s: %(funcName)s Line: %(lineno)d - %(message)s"
     datestr = "%m/%d/%y %I:%m:%S: %p "
 
