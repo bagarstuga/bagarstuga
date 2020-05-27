@@ -108,7 +108,6 @@ def main():
     datestr = "%m/%d/%y %I:%m:%S: %p "
 
     logging.basicConfig(
-        """giving info to get the logger to work"""
         filename= "custom_log_output.log",
         level= logging.DEBUG,
         filemode= "w",
@@ -118,7 +117,6 @@ def main():
     """different log messages"""
     logging.info("info message")
     logging.warning("Warning message")
-    logging.debug("DEBUG message")
     logging.error("Error message")
     logging.critical("CRITICAL MESSAGE")
    
