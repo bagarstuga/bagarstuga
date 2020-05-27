@@ -3,6 +3,7 @@
    everything is connected. Run this module to start the game.
    The controls are simple. Arrow keys to move and spacebar to jump"""
 import pygame as pg
+import logging
 from shark import *
 from settings import *
 from platforms import Platform
