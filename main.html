@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>main</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Carvid%5Cdocuments%5Csharkrush%5Cmain.py">c:\users\arvid\documents\sharkrush\main.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;is&nbsp;the&nbsp;main&nbsp;module&nbsp;for&nbsp;the&nbsp;game<br>
+Shark&nbsp;Rush.&nbsp;It&nbsp;starts&nbsp;the&nbsp;game&nbsp;and&nbsp;is&nbsp;the&nbsp;module&nbsp;where<br>
+everything&nbsp;is&nbsp;connected.&nbsp;Run&nbsp;this&nbsp;module&nbsp;to&nbsp;start&nbsp;the&nbsp;game.<br>
+The&nbsp;controls&nbsp;are&nbsp;simple.&nbsp;Arrow&nbsp;keys&nbsp;to&nbsp;move&nbsp;and&nbsp;spacebar&nbsp;to&nbsp;jump</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pygame.html">pygame</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="main.html#MainClass">MainClass</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MainClass">class <strong>MainClass</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;contains&nbsp;methods&nbsp;for&nbsp;the&nbsp;start-screen,<br>
+updating&nbsp;the&nbsp;screen,&nbsp;drawing&nbsp;sprites&nbsp;and&nbsp;the&nbsp;game&nbsp;loop<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MainClass-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>This&nbsp;initializes&nbsp;pygame&nbsp;as&nbsp;well&nbsp;as&nbsp;the<br>
+pygame&nbsp;mixer,&nbsp;which&nbsp;is&nbsp;used&nbsp;for&nbsp;playing&nbsp;sounds.<br>
+Groups&nbsp;for&nbsp;platforms&nbsp;and&nbsp;sprites&nbsp;are&nbsp;made&nbsp;as&nbsp;to&nbsp;organize&nbsp;them.<br>
+The&nbsp;clock&nbsp;tick&nbsp;is&nbsp;also&nbsp;set&nbsp;up.</tt></dd></dl>
+
+<dl><dt><a name="MainClass-events"><strong>events</strong></a>(self)</dt><dd><tt>The&nbsp;game&nbsp;loop&nbsp;where&nbsp;the&nbsp;other&nbsp;methods&nbsp;are&nbsp;called&nbsp;and&nbsp;run<br>
+until&nbsp;the&nbsp;end_game()&nbsp;method&nbsp;is&nbsp;called&nbsp;and&nbsp;running&nbsp;is&nbsp;false<br>
+here&nbsp;the&nbsp;updating&nbsp;speed&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;constant<br>
+FPS</tt></dd></dl>
+
+<dl><dt><a name="MainClass-graphic"><strong>graphic</strong></a>(self)</dt><dd><tt>Draws&nbsp;the&nbsp;different&nbsp;sprites&nbsp;and&nbsp;the&nbsp;background</tt></dd></dl>
+
+<dl><dt><a name="MainClass-jumping_end_game"><strong>jumping_end_game</strong></a>(self)</dt><dd><tt>Makes&nbsp;use&nbsp;of&nbsp;the&nbsp;pygame.event.get()&nbsp;to<br>
+both&nbsp;jump&nbsp;and&nbsp;see&nbsp;if&nbsp;the&nbsp;player&nbsp;wants&nbsp;to&nbsp;close<br>
+the&nbsp;game,&nbsp;hence&nbsp;the&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="MainClass-render"><strong>render</strong></a>(self)</dt><dd><tt>When&nbsp;the&nbsp;game&nbsp;starts,&nbsp;create&nbsp;these&nbsp;first&nbsp;and&nbsp;play&nbsp;music,<br>
+then&nbsp;go&nbsp;to&nbsp;the&nbsp;game&nbsp;loop&nbsp;in&nbsp;<a href="#MainClass-events">events</a>().&nbsp;Here&nbsp;the&nbsp;class&nbsp;Shark()&nbsp;is<br>
+imported&nbsp;from&nbsp;sprites&nbsp;and&nbsp;becomes&nbsp;the&nbsp;player&nbsp;variable</tt></dd></dl>
+
+<dl><dt><a name="MainClass-start_screen"><strong>start_screen</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;defines&nbsp;two&nbsp;fonts,&nbsp;used&nbsp;for&nbsp;the&nbsp;two&nbsp;different<br>
+text&nbsp;lines,&nbsp;these&nbsp;are&nbsp;put&nbsp;on&nbsp;top&nbsp;of&nbsp;the&nbsp;background,<br>
+then&nbsp;checks&nbsp;if&nbsp;any&nbsp;key&nbsp;is&nbsp;pressed,&nbsp;if&nbsp;so,&nbsp;go&nbsp;to&nbsp;<a href="#MainClass-render">render</a>(),<br>
+otherwise,&nbsp;quit.&nbsp;There&nbsp;is&nbsp;a&nbsp;number&nbsp;50&nbsp;here,&nbsp;this&nbsp;is&nbsp;just&nbsp;a&nbsp;number<br>
+which&nbsp;places&nbsp;the&nbsp;second&nbsp;line&nbsp;of&nbsp;text&nbsp;in&nbsp;a&nbsp;good&nbsp;place,&nbsp;right&nbsp;below<br>
+the&nbsp;first&nbsp;line</tt></dd></dl>
+
+<dl><dt><a name="MainClass-update"><strong>update</strong></a>(self)</dt><dd><tt>Updates&nbsp;the&nbsp;sprites&nbsp;and&nbsp;updates&nbsp;the&nbsp;screen</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;runs&nbsp;the&nbsp;method&nbsp;start_screen&nbsp;to&nbsp;display&nbsp;the&nbsp;start&nbsp;screen<br>
+it&nbsp;is&nbsp;used&nbsp;to&nbsp;prevent&nbsp;global&nbsp;variables.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BLACK</strong> = (255, 255, 255)<br>
+<strong>BLUE</strong> = (0, 0, 255)<br>
+<strong>FPS</strong> = 60<br>
+<strong>FRICTION</strong> = -0.1<br>
+<strong>GRAV_FRC</strong> = 0.5<br>
+<strong>GREEN</strong> = (0, 255, 0)<br>
+<strong>GREY</strong> = (128, 128, 128)<br>
+<strong>PLAYER_HEIGHT</strong> = 70<br>
+<strong>PLAYER_JUMPHEIGHT</strong> = -14<br>
+<strong>PLAYER_MVMNTSPEED</strong> = 0.5<br>
+<strong>PLAYER_WIDTH</strong> = 100<br>
+<strong>RED</strong> = (255, 0, 0)<br>
+<strong>SCR_HEIGHT</strong> = 780<br>
+<strong>SCR_WIDTH</strong> = 600<br>
+<strong>TITLE</strong> = 'Shark Rush'<br>
+<strong>WHITE</strong> = (255, 255, 255)</td></tr></table>
+</body></html>
