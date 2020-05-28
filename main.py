@@ -102,14 +102,12 @@ class MainClass:
         self.render()
 def main():
     """This function runs the method start_screen to display the start screen
-       it is used to prevent global variables.
+       it is used to prevent global variables. It also contains
+       the logging to see errors.
        """
     MainClass().start_screen()
-   
-    """information for logging"""
     fmtstr = " %(asctime)s: (%(filename)s): %(levelname)s: %(funcName)s Line: %(lineno)d - %(message)s"
     datestr = "%m/%d/%y %I:%m:%S: %p "
-
     logging.basicConfig(
         filename= "custom_log_output.log",
         level= logging.DEBUG,
@@ -122,6 +120,6 @@ def main():
     logging.warning("Warning message")
     logging.error("Error message")
     logging.critical("CRITICAL MESSAGE")
-   
 if __name__ == "__main__":
     main()
+
