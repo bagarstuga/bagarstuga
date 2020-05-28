@@ -17,8 +17,8 @@ class Shark(pg.sprite.Sprite):
         self.image = pg.transform.scale\
         (pg.image.load("shark-facing-right.png"),(PLAYER_WIDTH, PLAYER_HEIGHT))
         self.rect = self.image.get_rect()
-        self.rect.center = (SCR_WIDTH / 2, SCR_HEIGHT / 2)
-        self.pos = self.vec(SCR_WIDTH / 2, SCR_HEIGHT / 2)
+        self.rect.center = (SCR_WIDTH / 2, SCR_HEIGHT - 30)
+        self.pos = self.vec(SCR_WIDTH / 2, SCR_HEIGHT - 30)
         self.vel = self.vec(0, 0)
         self.acc = self.vec(0, 0)
     def jump(self):
